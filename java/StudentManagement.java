@@ -1,5 +1,3 @@
-package java;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -81,7 +79,7 @@ public class StudentManagement {
         boolean found = false;
 
         for (Student s : students) {
-            if (s.name.equalsIgnoreCase(searchName)) {
+            if (s.name.toLowerCase().contains(searchName.toLowerCase())) {
                 System.out.println("\nMatch Found:");
                 s.displayStudent();
                 found = true;
@@ -89,16 +87,12 @@ public class StudentManagement {
         }
 
         if (!found) {
-            System.out.println("No student found with name: " + searchName);
+            System.out.println("No student matching search query: \"" + searchName + "\"");
         }
     }
 
     // Main Method with CLI Loop
     public static void main(String[] args) {
-        // Sample seed records
-        students.add(new Student("John", "john@gmail.com", "9876543210"));
-        students.add(new Student("Sam", "sam@gmail.com", "9876543211"));
-
         while (true) {
             System.out.println("\n===== Student Management =====");
             System.out.println("1. Add Student");

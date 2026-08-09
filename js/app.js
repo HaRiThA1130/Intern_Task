@@ -3,17 +3,10 @@
 // Utility functions for LocalStorage management
 const STORAGE_KEY = "students";
 
-// Pre-fill initial mock data if empty (so evaluator sees clean data immediately)
 function getStudents() {
   const data = localStorage.getItem(STORAGE_KEY);
   if (!data) {
-    const initialData = [
-      { name: "John Doe", email: "john@gmail.com", phone: "9876543210", department: "CSE", gender: "Male", dob: "2001-05-10" },
-      { name: "Sam Wilson", email: "sam@gmail.com", phone: "9876543211", department: "ECE", gender: "Male", dob: "2000-08-15" },
-      { name: "Mary Jane", email: "mary@gmail.com", phone: "9876543213", department: "CSE", gender: "Female", dob: "2002-01-20" }
-    ];
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(initialData));
-    return initialData;
+    return [];
   }
   return JSON.parse(data);
 }
@@ -347,6 +340,37 @@ function updateDashboardStats() {
   if (cseElem) cseElem.textContent = students.filter(s => s.department === "CSE").length;
   if (eceElem) eceElem.textContent = students.filter(s => s.department === "ECE").length;
   if (eeeElem) eeeElem.textContent = students.filter(s => s.department === "EEE").length;
+}
+
+// Forgot Password Modal Handlers (Mock Implementation for Version 1)
+function openForgotPasswordModal(e) {
+  if (e) e.preventDefault();
+  const modal = document.getElementById("forgotPasswordModal");
+  const alertBox = document.getElementById("forgotAlert");
+  if (alertBox) alertBox.style.display = "none";
+  if (modal) modal.classList.add("active");
+}
+
+function closeForgotPasswordModal() {
+  const modal = document.getElementById("forgotPasswordModal");
+  if (modal) modal.classList.remove("active");
+}
+
+function handleForgotPasswordSubmit(e) {
+  e.preventDefault();
+  const emailInput = document.getElementById("resetEmail");
+  const alertBox = document.getElementById("forgotAlert");
+  const email = emailInput ? emailInput.value.trim() : "";
+
+  if (email && alertBox) {
+    alertBox.innerHTML = `<strong>Reset Link Sent!</strong><br>A password reset link has been dispatched to <code>${escapeHtml(email)}</code>.<br><small style="opacity: 0.85;">(Mock Notice: In production, the backend sends a secure time-bound reset token).</small>`;
+    alertBox.style.display = "block";
+
+    setTimeout(() => {
+      closeForgotPasswordModal();
+      if (emailInput) emailInput.value = "";
+    }, 3500);
+  }
 }
 
 // Global initialization on DOMContentLoaded
