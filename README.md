@@ -9,31 +9,31 @@ A comprehensive, multi-component **Student Management System** implementing **Fr
 ```text
 Intern_Task/
 │
-├── index.html            # Task 1: Login Page with Mock Forgot Password
-├── dashboard.html        # Task 1: Navigation Hub & Real-time Metrics
-├── student.html          # Task 1: Student Registration Form with Validation
-├── student-list.html     # Task 1: Student List Table with Real-time Search, Edit & Delete
+├── index.html            
+├── dashboard.html        
+├── student.html         
+├── student-list.html     
 │
 ├── css/
-│   └── style.css         # Modern responsive CSS design system (Variables, Flex/Grid)
+│   └── style.css         
 │
 ├── js/
-│   └── app.js            # Frontend logic & LocalStorage persistence
+│   └── app.js            
 │
 ├── java/
-│   └── StudentManagement.java # Task 2: Java Console CLI App (OOP, ArrayList, Search)
+│   └── StudentManagement.java 
 │
 ├── sql/
-│   └── student_db.sql    # Task 3: MySQL Database Schema & Queries
+│   └── student_db.sql    
 │
-├── fullstack/            # ⭐ BONUS FEATURE: Fullstack MySQL Web App
-│   ├── server.js         # Node.js + Express REST API Server
-│   ├── package.json      # Dependencies (Express, mysql2, cors, dotenv)
-│   ├── .env              # Environment config for MySQL credentials
-│   ├── .gitignore        # Excludes node_modules & .env
-│   └── public/           # Frontend connected to MySQL via fetch() API
+├── fullstack/            
+│   ├── server.js         
+│   ├── package.json      
+│   ├── .env              
+│   ├── .gitignore        
+│   └── public/           
 │
-└── README.md             # Complete System Documentation
+└── README.md            
 ```
 
 ---
